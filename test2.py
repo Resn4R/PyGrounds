@@ -111,3 +111,117 @@ with open("testFile.txt", "w") as file:
     file.write("this is a sample text\nNew line to see if it works")
 with open("testFile.txt", "r") as file:
     print(file.read())
+
+
+#Chapter 5: Object-Oriented Programming in Python
+
+class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+        
+    def greet(self):
+        print(f"hello, my name is {self.name} and i'm {self.age}.")
+
+p = Person("Johnny", 30)
+p.greet()
+
+class Student(Person):
+    def __init__(self, name, age, grade):
+        super().__init__(name, age)
+        self.grade = grade
+    
+    def introduce(self):
+        super().greet()
+        print(f"I'm in grade {self.grade}")
+        
+s = Student("James", 23, 12)
+s.introduce()
+
+#Exercises
+
+#Create a Car class with properties like brand, model, and year, and methods to perform operations like start and stop.
+#Create an object of your Car class and call its methods.
+#Create a Tesla class that inherits from your Car class. Add an additional property like autopilot and an additional method to activate it.
+
+class Car:
+    def __init__(self, brand, model, year, isOn):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.isOn = isOn
+    
+    def start(self):
+        isOn = True
+        
+    def stop(self):
+        isOn = False
+        
+class Tesla(Car):
+    def __init__(self, brand, model, year, isOn, autopilot):
+        super().__init__(brand, model, year, isOn)
+        self.autopilot = autopilot
+    
+    def toggleAutopilot(self):
+        if self.autopilot == True:
+            self.autopilot = False
+        else:
+            self.autopilot = True
+
+tesla = Tesla("Tesla", "Model Y", 2023, False, False)
+print(tesla.toggleAutopilot())
+
+#Chapter 6: Python Standard Library, APIs and Databases
+import math
+print(math.sqrt(16))
+
+import datetime
+now = datetime.datetime.now()
+print(now)
+
+#import requests
+#response = requests.get('https://jsonplaceholder.typicode.com/posts')
+#for post in posts[:5]: #only the first 5
+    #print(post['title'])
+
+import sqlite3
+conn = sqlite3.connect('example.db')
+c = conn.cursor()
+
+c.execute("DROP TABLE IF EXISTS stocks")
+
+c.execute('''CREATE TABLE stocks(date text, trans text, symbol text, qty real, price real)''')
+
+c.execute("INSERT INTO stocks VALUES ('2023-07-03','BUY','RHAT',100,35.14)")
+
+conn.commit()
+conn.close()
+
+#Exercises
+
+#Use the math module to calculate the factorial of a number.
+math.factorial(5)
+
+#Use the datetime module to get the current date and time and format it in the ‘YYYY-MM-DD HH:MM:SS’ format.
+formattedTime = now.strftime('%Y-%m-%d %H:%M:%S')
+print(f"{formattedTime}")
+
+#Use the requests module to fetch data from ‘https://jsonplaceholder.typicode.com/posts’ and print the title of each post.
+
+#import requests
+#response = requests.get('https://jsonplaceholder.typicode.com/posts')
+#for post in posts:
+    #print(post['title'])
+
+#Create an SQLite database, create a table named ‘employees’ with fields for ‘name’, ‘position’, and ‘salary’, then insert some rows of data.
+c.execute("DROP TABLE IF EXISTS employees")
+#using example.db and cursor object
+c.execute('''CREATE TABLE employees(name text, position text, salary real)''')
+c.execute("INSERT INTO employees VALUES('John Doe', 'Salesman', 30000)")
+conn.commit
+
+c.execute("SELECT * FROM employees")
+results = c.fetchall()
+
+for row in results:
+    print(row)
