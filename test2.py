@@ -101,7 +101,13 @@ with open("example.txt", "r") as f:
     print(f.read())
     
 #packages
-import requests
+#import requests
 
-response = requests.get("https://www.example.com")
-print(response.status_code)
+#response = requests.get("https://www.example.com")
+#print(response.status_code)
+
+
+with open("testFile.txt", "w") as file:
+    file.write("this is a sample text\nNew line to see if it works")
+with open("testFile.txt", "r") as file:
+    print(file.read())
