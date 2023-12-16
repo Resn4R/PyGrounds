@@ -225,3 +225,5 @@ results = c.fetchall()
 
 for row in results:
     print(row)
+    
+    
