@@ -215,6 +215,7 @@ print(f"{formattedTime}")
 
 #Create an SQLite database, create a table named ‘employees’ with fields for ‘name’, ‘position’, and ‘salary’, then insert some rows of data.
 c.execute("DROP TABLE IF EXISTS employees")
+conn.commit
 #using example.db and cursor object
 c.execute('''CREATE TABLE employees(name text, position text, salary real)''')
 c.execute("INSERT INTO employees VALUES('John Doe', 'Salesman', 30000)")
@@ -226,4 +227,36 @@ results = c.fetchall()
 for row in results:
     print(row)
     
-    
+# Chapter 7: Data Analysis with Python
+
+import numpy as np 
+
+a = np.array([1,2,3])
+print(a)
+
+import panda as pd 
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [25, 32, 37],
+    'City': ['New York', 'Los Angeles', 'London']
+}
+df = pd.DataFrame(data)
+
+print(df)
+
+import matplotlib.pyplot as plt 
+x1 = [1,2,3,4,5]
+y1 = [2,3,5,7,11]
+
+plt = plot(x1,y1)
+plt.show
+
+# Exercises
+
+# Create a NumPy array of 10 numbers and print the mean, median, and standard deviation.
+testArray = [0,1,2,3,4,5,6,7,8,9]
+
+# Create a line graph using Matplotlib. The x-axis should be a list of integers from 1 to 10, and the y-axis should be the squares of those integers.
+
+# Create a pandas DataFrame from a dictionary of lists, each containing 5 elements.
