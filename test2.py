@@ -269,3 +269,7 @@ plt = plot(x,y)
 plt.show
 
 # Create a pandas DataFrame from a dictionary of lists, each containing 5 elements.
+sampleData = {
+    ['bob','jim','paul'] : ['dev', 'prj man', 'devops']
+}
+frame = pd.DataFrame(sampleData)
