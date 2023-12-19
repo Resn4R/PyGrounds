@@ -214,15 +214,17 @@ print(f"{formattedTime}")
     #print(post['title'])
 
 #Create an SQLite database, create a table named ‘employees’ with fields for ‘name’, ‘position’, and ‘salary’, then insert some rows of data.
-c.execute("DROP TABLE IF EXISTS employees")
-conn.commit
+db = sqlite3.connect('sample.db')
+curse = db.cursor()
+curse.execute("DROP TABLE IF EXISTS employees")
+db.commit
 #using example.db and cursor object
-c.execute('''CREATE TABLE employees(name text, position text, salary real)''')
-c.execute("INSERT INTO employees VALUES('John Doe', 'Salesman', 30000)")
-conn.commit
+curse.execute('''CREATE TABLE employees(name text, position text, salary real)''')
+curse.execute("INSERT INTO employees VALUES('John Doe', 'Salesman', 30000)")
+db.commit
 
-c.execute("SELECT * FROM employees")
-results = c.fetchall()
+curse.execute("SELECT * FROM employees")
+results = curse.fetchall()
 
 for row in results:
     print(row)
@@ -256,6 +258,11 @@ plt.show
 
 # Create a NumPy array of 10 numbers and print the mean, median, and standard deviation.
 testArray = [0,1,2,3,4,5,6,7,8,9]
+print(mean(testArray))
+print(median(testArray))
+print(deviation(testArray))
+
+
 
 # Create a line graph using Matplotlib. The x-axis should be a list of integers from 1 to 10, and the y-axis should be the squares of those integers.
 
