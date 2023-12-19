@@ -262,8 +262,10 @@ print(mean(testArray))
 print(median(testArray))
 print(deviation(testArray))
 
-
-
 # Create a line graph using Matplotlib. The x-axis should be a list of integers from 1 to 10, and the y-axis should be the squares of those integers.
+x = [1,2,3,4,5,6,7,8,9,10]
+y = [n ** 2 for n in x]
+plt = plot(x,y)
+plt.show
 
 # Create a pandas DataFrame from a dictionary of lists, each containing 5 elements.
